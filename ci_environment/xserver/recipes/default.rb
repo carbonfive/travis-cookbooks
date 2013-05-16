@@ -31,7 +31,11 @@ list.each { |pkg| package(pkg) { action :install } }
 cookbook_file "/etc/init.d/xvfb" do
   owner "root"
   group "root"
-  mode  0644
+  mode  0755
 
   source "etc/init.d/xvfb.sh"
+end
+
+service "xvfb" do
+  action :nothing
 end
